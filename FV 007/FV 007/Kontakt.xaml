@@ -1,0 +1,166 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FV_007"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="FV_007.Kontakt"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!-- Grå boks -->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="12*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Menu -->
+        <Grid Background="#4036E5" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Menu - Hjem -->
+            <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\plane.png" Height="50" Width="70" >
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="PointerPressed">
+                            <Core:NavigateToPageAction TargetPage="FV_007.MainPage"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Image>
+            </StackPanel>
+            <!-- Menu - Søg -->
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\search.png" Height="50" Width="70" />
+            </StackPanel>
+            <!-- Menu - liste over bolig -->
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\list.png" Height="50" Width="70" >
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="PointerPressed">
+                            <Core:NavigateToPageAction TargetPage="FV_007.ByOverSigt"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Image>
+            </StackPanel>
+            <!-- Menu - enkelt bolig-->
+            <StackPanel Grid.Row="3" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\home1.png" Height="50" Width="70" >
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="PointerPressed">
+                            <Core:NavigateToPageAction TargetPage="FV_007.UI_Paris"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Image>
+            </StackPanel>
+            <!-- Menu - kontakt -->
+            <StackPanel Grid.Row="4" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\contacts.png" Height="50" Width="70" />
+            </StackPanel>
+            <!-- Menu - log-in -->
+            <StackPanel Grid.Row="5" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\lock.png" Height="50" Width="70" />
+            </StackPanel>
+
+        </Grid>
+
+        <!-- Grid 2 -->
+        <Grid Grid.Row="0" Grid.Column="1"  Background="White" Padding="50,10,50,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                <TextBlock Foreground="#4036E5" FontWeight="Bold" FontFamily="Cordia New" FontSize="72"  Text="Overskrift"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                <TextBlock Foreground="Black" FontFamily="Cordia New" FontSize="42"  Text="Kontakt"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                <TextBlock Foreground="Black" FontFamily="Cordia New" FontSize="42"  Text="Om os:"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                <TextBlock Foreground="Black" FontFamily="Cordia New" FontSize="27"  Text="INFO Lorem ipsum dolor sit amet, lacinia leo et sapien aenean, congue inventore sapien morbi at, quis varius id ut cras, maecenas ac, mattis bibendum eu. Mi  pellentesque nunc consequat, enim dui pede in ut diam, dui gravida luctus ullamcorper mauris, in volutpat orci morbi mollis, vestibulum id feugiat augue urna. Eros lacus commodo, eros est donec id vestibulum. Mi ut fusce    semper interdum arcu, et dolor amet porta volutpat, viverra elit maecenas at nonummy ut ultrices, at fusce pede,  maecenas malesuada donec pulvinar aliquam ac odio. Purus nunc, nec quis, enim non aliquam, hendrerit duis gravida   sed consequat tellus, platea erat at facilisis ultricies elementum sodales. Elit cras fringilla magna sed, aptent dolor arcu quisque nullam felis, diam venenatis." Height="256" Margin="0,0,-0.5,0" TextWrapping="WrapWholeWords" />
+            </StackPanel>
+            <StackPanel Grid.Row="5" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                <TextBlock Foreground="Black" FontFamily="Cordia New" FontSize="42"  Text="Du kan finde os på disse sociale medier:"/>
+            </StackPanel>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                    <TextBlock Foreground="Black" FontFamily="Cordia New" FontSize="27"  Text="Tlf: +45 12 12 12 12"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                    <TextBlock Foreground="Black" FontFamily="Cordia New" FontSize="27"  Text="Mail: info@francevacancies.eu"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                    <TextBlock Foreground="Black" FontFamily="Cordia New" FontSize="27"  Text="vej"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" VerticalAlignment="Bottom">
+                    <TextBlock Foreground="Black" FontFamily="Cordia New" FontSize="27"  Text="zip"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="1"  Margin="0,0,0,0" VerticalAlignment="Bottom">
+                    <TextBlock Foreground="Black" FontFamily="Cordia New" FontSize="27"  Text="country"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="6" Margin="-44,10,877.5,-10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" Margin="50,25,50,25" >
+                    <Image Source="Assets\facebook-icon.png" Height="42" Width="70" Margin="0,0,-19.5,0" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="50,25,50,25" >
+                    <Image Source="Assets\twitter-icon.png" Height="41" Margin="0,0,-0.5,0" />
+                </StackPanel>
+                <StackPanel Grid.Row="0"  Grid.Column="2" Margin="50,25,50,25" >
+                    <Image Source="Assets\insta-icon.png" Height="43" Width="70" Margin="0,0,-20,0" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

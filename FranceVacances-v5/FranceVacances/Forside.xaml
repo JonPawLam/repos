@@ -1,0 +1,127 @@
+﻿<Page
+    x:Class="FranceVacances.Forside"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FranceVacances"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!--Grå Boks-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="569*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!-- Menu -->
+        <Grid Background="#4036E5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,245.742,0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Menu - Hjem -->
+            <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\plane.png" Height="50" Width="70" />
+            </StackPanel>
+            <!-- Menu - Søg -->
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\search.png" Height="50" Width="70" />
+            </StackPanel>
+            <!-- Menu - liste over bolig -->
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\list.png" Height="50" Width="70" />
+            </StackPanel>
+            <!-- Menu - enkelt bolig-->
+            <StackPanel Grid.Row="3" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\home1.png" Height="50" Width="70" />
+            </StackPanel>
+            <!-- Menu - kontakt -->
+            <StackPanel Grid.Row="4" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\contacts.png" Height="50" Width="70" />
+            </StackPanel>
+            <!-- Menu - log-in -->
+            <StackPanel Grid.Row="5" VerticalAlignment="Bottom" Padding="10,10,10,10" >
+                <Image Source="Assets\lock.png" Height="50" Width="70" />
+            </StackPanel>
+
+        </Grid>
+
+
+        <!-- Grid 2 - Grøn Boks -->
+        <Grid Grid.Row="0" Grid.Column="1" Background="white" Padding="50,10,50,10" Margin="0.5,0,-1,10" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock Foreground="Black" FontWeight="Bold" FontFamily="Cordia New" FontSize="72"  Text="France Vacances" Margin="0,0,-0.5,0" Height="75" />
+                <Image Source="Assets\forside-banner.jpg" Height="386" Margin="-1212,0,-1047.5,0" />
+            </StackPanel>
+
+
+            <!-- Grid 3 - Røde Boks -->
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Søgefelter -->
+                <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"  Orientation="Horizontal"
+                HorizontalAlignment="Left" VerticalAlignment="Center" Height="96" Margin="0,19,0,467" Width="1140">
+                    <TextBlock TextWrapping="Wrap" FontFamily="Cordia New"  FontSize="72" Text="Find din rejse her hos os..." Width="1140"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Background="White"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,274,0.5,226" Width="632" Height="82">
+                    <TextBox TextWrapping="Wrap" FontFamily="Cordia New"  Width="686" FontSize="36" Height="82" Text="Hvor vil du hen..."/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Background="White"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="210" Margin="4.5,274,214,226" Height="82">
+                    <TextBox TextWrapping="Wrap" FontFamily="Cordia New" FontSize="36" Text="Dato" Width="212"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Background="White"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0.5,275,10,226" Width="204" Height="81">
+                    <TextBox TextWrapping="Wrap" FontFamily="Cordia New" FontSize="36" Text="Antal" Width="227"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Background="#4036E5"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="78" Margin="204.5,276,-10,228" Width="234">
+                    <Button Width="234" FontFamily="Cordia New" Height="78" Content="Søg" FontSize="36"/>
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

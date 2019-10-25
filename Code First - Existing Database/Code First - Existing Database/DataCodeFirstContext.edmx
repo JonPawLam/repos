@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB.CodeFirstExistingDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartId" />
+          </Key>
+          <Property Name="CartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Quantity" Type="float" />
+        </EntityType>
+        <EntityType Name="Costumer">
+          <Key>
+            <PropertyRef Name="CostumerNo" />
+          </Key>
+          <Property Name="CostumerNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CostumerAddress" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="float" />
+        </EntityType>
+        <EntityType Name="Receit">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CostumerNo" Type="int" />
+          <Property Name="DateOfOrder" Type="date" />
+        </EntityType>
+        <Association Name="FK__Cart__ProductID__36B12243">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Receit__Costumer__3B75D760">
+          <End Role="Costumer" Type="Self.Costumer" Multiplicity="0..1" />
+          <End Role="Receit" Type="Self.Receit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Costumer">
+              <PropertyRef Name="CostumerNo" />
+            </Principal>
+            <Dependent Role="Receit">
+              <PropertyRef Name="CostumerNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBCodeFirstExistingDatabaseModelStoreContainer">
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Costumer" EntityType="Self.Costumer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receit" EntityType="Self.Receit" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cart__ProductID__36B12243" Association="Self.FK__Cart__ProductID__36B12243">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Receit__Costumer__3B75D760" Association="Self.FK__Receit__Costumer__3B75D760">
+            <End Role="Costumer" EntitySet="Costumer" />
+            <End Role="Receit" EntitySet="Receit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB.CodeFirstExistingDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartId" />
+          </Key>
+          <Property Name="CartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Quantity" Type="Double" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Cart__ProductID__36B12243" FromRole="Cart" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Costumer">
+          <Key>
+            <PropertyRef Name="CostumerNo" />
+          </Key>
+          <Property Name="CostumerNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostumerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Receit" Relationship="Self.FK__Receit__Costumer__3B75D760" FromRole="Costumer" ToRole="Receit" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <NavigationProperty Name="Cart" Relationship="Self.FK__Cart__ProductID__36B12243" FromRole="Product" ToRole="Cart" />
+        </EntityType>
+        <EntityType Name="Receit">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CostumerNo" Type="Int32" />
+          <Property Name="DateOfOrder" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Costumer" Relationship="Self.FK__Receit__Costumer__3B75D760" FromRole="Receit" ToRole="Costumer" />
+        </EntityType>
+        <Association Name="FK__Cart__ProductID__36B12243">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Receit__Costumer__3B75D760">
+          <End Role="Costumer" Type="Self.Costumer" Multiplicity="0..1" />
+          <End Role="Receit" Type="Self.Receit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Costumer">
+              <PropertyRef Name="CostumerNo" />
+            </Principal>
+            <Dependent Role="Receit">
+              <PropertyRef Name="CostumerNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cart" EntityType="Self.Cart" />
+          <EntitySet Name="Costumer" EntityType="Self.Costumer" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Receit" EntityType="Self.Receit" />
+          <AssociationSet Name="FK__Cart__ProductID__36B12243" Association="Self.FK__Cart__ProductID__36B12243">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Receit__Costumer__3B75D760" Association="Self.FK__Receit__Costumer__3B75D760">
+            <End Role="Costumer" EntitySet="Costumer" />
+            <End Role="Receit" EntitySet="Receit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBCodeFirstExistingDatabaseModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Cart">
+            <EntityTypeMapping TypeName="DB.CodeFirstExistingDatabaseModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="CartId" ColumnName="CartId" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Costumer">
+            <EntityTypeMapping TypeName="DB.CodeFirstExistingDatabaseModel.Costumer">
+              <MappingFragment StoreEntitySet="Costumer">
+                <ScalarProperty Name="CostumerNo" ColumnName="CostumerNo" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CostumerAddress" ColumnName="CostumerAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="DB.CodeFirstExistingDatabaseModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Product1" ColumnName="Product" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receit">
+            <EntityTypeMapping TypeName="DB.CodeFirstExistingDatabaseModel.Receit">
+              <MappingFragment StoreEntitySet="Receit">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CostumerNo" ColumnName="CostumerNo" />
+                <ScalarProperty Name="DateOfOrder" ColumnName="DateOfOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
